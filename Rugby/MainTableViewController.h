@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class MainViewController;
+
 @interface MainTableViewController : UITableViewController <NSXMLParserDelegate>
 
 -(void) fetchEntries;
 
 @property (nonatomic, strong) NSURL* feedSelected;
+
+@property (nonatomic, weak) UIActivityIndicatorView *activityIndicator;
 
 @end

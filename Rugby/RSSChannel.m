@@ -9,15 +9,15 @@
 #import "RSSChannel.h"
 #import "RSSItem.h"
 
-@implementation RSSChannel
-@synthesize items, title, infoString, parentParserDelegate;
+@implementation RSSChannel {
+	NSMutableString *_currentString;
+}
 
 -(id) init {
     self = [super init];
     
     if(self) {
-        //Create the container for the RSSItems
-        items = [[NSMutableArray alloc]init];
+        _items = [[NSMutableArray alloc]init];
     }
     return self;
 }
@@ -26,37 +26,30 @@
 //    NSLog(@"\t%@ found a %@ element", self, elementName);
     
     if ([elementName isEqual:@"title"]) {
-        currentString = [[NSMutableString alloc] init];
-        [self setInfoString:currentString];
+        _currentString = [[NSMutableString alloc] init];
+        self.infoString = _currentString;
     }
     else if ([elementName isEqual:@"description"]) {
-        currentString = [[NSMutableString alloc] init];
-        [self setInfoString:currentString];
+        _currentString = [[NSMutableString alloc] init];
+        self.infoString = _currentString;
     }
     else if ([elementName isEqual:@"item"]) {
-        //when we find an item, create an instance of RSSItem
         RSSItem *entry = [[RSSItem alloc] init];
-        
-        //Set up its parent as ourselves so we can regain control of the parser
         [entry setParentParserDelegate:self];
-        
-        //Turn the parser to the RSSItem
         [parser setDelegate:entry];
-        
-        //Add the item to our array and release our hold on it
-        [items addObject:entry];
+        [self.items addObject:entry];
         
     }
 }
 
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)str {
-    [currentString appendString:str];
+    [_currentString appendString:str];
 }
 
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
-    currentString = nil;
+    _currentString = nil;
     if([elementName isEqual:@"channel"]) {
-        [parser setDelegate:parentParserDelegate];
+        [parser setDelegate:self.parentParserDelegate];
     }
 }
 

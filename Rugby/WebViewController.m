@@ -8,7 +8,9 @@
 
 #import "WebViewController.h"
 
-@interface WebViewController ()
+@interface WebViewController () <UIWebViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -16,6 +18,11 @@
 
 -(void) viewDidLoad {
 	[super viewDidLoad];
+	
+	self.webView.delegate = self;
+
+    NSURLRequest *request = [NSURLRequest requestWithURL:self.url];
+    [self.webView loadRequest:request];
 
 	UISwipeGestureRecognizer *rightSwipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didSwipeRight:)];
 	[rightSwipeRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
@@ -27,5 +34,15 @@
 -(IBAction)didSwipeRight:(id)sender {
 	[self performSegueWithIdentifier:@"UnwindSegueFromWebViewToMainView" sender:self];
 }
+
+-(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+	[self.activityIndicator stopAnimating];
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView {
+	[self.activityIndicator stopAnimating];
+
+}
+
 
 @end

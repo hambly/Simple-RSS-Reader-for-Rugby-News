@@ -9,6 +9,13 @@
 @interface MainTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *headlineLabel;
 @property (weak, nonatomic) IBOutlet UILabel *snippetLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @end
+
+// No need for a separate file for implementation here.
+
+@implementation MainTableViewCell
+@end
+
 

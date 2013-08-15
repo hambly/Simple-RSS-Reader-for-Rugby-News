@@ -6,10 +6,9 @@
 //  Copyright (c) 2013 Mark Hambly. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface WebViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (strong, nonatomic) IBOutlet UIWebView *webView;
+@property (nonatomic, strong) NSURL *url;
 
 @end

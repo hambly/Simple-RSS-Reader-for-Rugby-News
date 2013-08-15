@@ -6,12 +6,7 @@
 //  Copyright (c) 2013 Mark Hambly. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @interface RSSItem : NSObject <NSXMLParserDelegate>
-{
-    NSMutableString *currentString;
-}
 
 @property (nonatomic, weak) id parentParserDelegate;
 @property (nonatomic, strong) NSString *title;

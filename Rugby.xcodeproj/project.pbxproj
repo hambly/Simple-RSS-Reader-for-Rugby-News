@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4D04369C17BC50AA00C81CA7 /* MainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D04369B17BC50AA00C81CA7 /* MainTableViewCell.m */; };
 		4D04369F17BC51E700C81CA7 /* RSSChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D04369E17BC51E700C81CA7 /* RSSChannel.m */; };
 		4D0436A217BC51F300C81CA7 /* RSSItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0436A117BC51F300C81CA7 /* RSSItem.m */; };
 		4D0436A517BC557100C81CA7 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0436A417BC557100C81CA7 /* WebViewController.m */; };
 		4D0436A817BC615C00C81CA7 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D0436A617BC615C00C81CA7 /* Icon.png */; };
 		4D0436A917BC615C00C81CA7 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D0436A717BC615C00C81CA7 /* Icon@2x.png */; };
+		4D0436AD17BC7E0800C81CA7 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D0436AB17BC7E0800C81CA7 /* Icon-72.png */; };
+		4D0436AE17BC7E0800C81CA7 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D0436AC17BC7E0800C81CA7 /* Icon-72@2x.png */; };
 		4DF9B50717BC4177008A34A6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF9B50617BC4177008A34A6 /* UIKit.framework */; };
 		4DF9B50917BC4177008A34A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF9B50817BC4177008A34A6 /* Foundation.framework */; };
 		4DF9B50B17BC4177008A34A6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF9B50A17BC4177008A34A6 /* CoreGraphics.framework */; };
@@ -28,7 +29,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4D04369B17BC50AA00C81CA7 /* MainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainTableViewCell.m; path = ../../../../../.Trash/MainTableViewCell.m; sourceTree = "<group>"; };
 		4D04369D17BC51E700C81CA7 /* RSSChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSChannel.h; sourceTree = "<group>"; };
 		4D04369E17BC51E700C81CA7 /* RSSChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSChannel.m; sourceTree = "<group>"; };
 		4D0436A017BC51F300C81CA7 /* RSSItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSItem.h; sourceTree = "<group>"; };
@@ -37,6 +37,8 @@
 		4D0436A417BC557100C81CA7 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		4D0436A617BC615C00C81CA7 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		4D0436A717BC615C00C81CA7 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		4D0436AB17BC7E0800C81CA7 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		4D0436AC17BC7E0800C81CA7 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
 		4DF9B50317BC4177008A34A6 /* Rugby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rugby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DF9B50617BC4177008A34A6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4DF9B50817BC4177008A34A6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -72,6 +74,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D0436AA17BC769E00C81CA7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4D04369D17BC51E700C81CA7 /* RSSChannel.h */,
+				4D04369E17BC51E700C81CA7 /* RSSChannel.m */,
+				4D0436A017BC51F300C81CA7 /* RSSItem.h */,
+				4D0436A117BC51F300C81CA7 /* RSSItem.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		4DF9B4FA17BC4177008A34A6 = {
 			isa = PBXGroup;
 			children = (
@@ -102,23 +115,15 @@
 		4DF9B50C17BC4177008A34A6 /* Rugby */ = {
 			isa = PBXGroup;
 			children = (
-				4DF9B51517BC4177008A34A6 /* AppDelegate.h */,
-				4DF9B51617BC4177008A34A6 /* AppDelegate.m */,
 				4DF9B51E17BC4177008A34A6 /* MainStoryboard.storyboard */,
 				4DF9B52D17BC4304008A34A6 /* MainViewController.h */,
 				4DF9B52E17BC4304008A34A6 /* MainViewController.m */,
 				4DF9B53017BC4320008A34A6 /* MainTableViewController.h */,
 				4DF9B53117BC4320008A34A6 /* MainTableViewController.m */,
 				4DF9B53317BC4337008A34A6 /* MainTableViewCell.h */,
-				4D04369B17BC50AA00C81CA7 /* MainTableViewCell.m */,
 				4D0436A317BC557100C81CA7 /* WebViewController.h */,
 				4D0436A417BC557100C81CA7 /* WebViewController.m */,
-				4D04369D17BC51E700C81CA7 /* RSSChannel.h */,
-				4D04369E17BC51E700C81CA7 /* RSSChannel.m */,
-				4D0436A017BC51F300C81CA7 /* RSSItem.h */,
-				4D0436A117BC51F300C81CA7 /* RSSItem.m */,
-				4D0436A617BC615C00C81CA7 /* Icon.png */,
-				4D0436A717BC615C00C81CA7 /* Icon@2x.png */,
+				4D0436AA17BC769E00C81CA7 /* Model */,
 				4DF9B50D17BC4177008A34A6 /* Supporting Files */,
 			);
 			path = Rugby;
@@ -127,6 +132,12 @@
 		4DF9B50D17BC4177008A34A6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4DF9B51517BC4177008A34A6 /* AppDelegate.h */,
+				4DF9B51617BC4177008A34A6 /* AppDelegate.m */,
+				4D0436A617BC615C00C81CA7 /* Icon.png */,
+				4D0436A717BC615C00C81CA7 /* Icon@2x.png */,
+				4D0436AB17BC7E0800C81CA7 /* Icon-72.png */,
+				4D0436AC17BC7E0800C81CA7 /* Icon-72@2x.png */,
 				4DF9B50E17BC4177008A34A6 /* Rugby-Info.plist */,
 				4DF9B50F17BC4177008A34A6 /* InfoPlist.strings */,
 				4DF9B51217BC4177008A34A6 /* main.m */,
@@ -196,6 +207,8 @@
 				4DF9B52017BC4177008A34A6 /* MainStoryboard.storyboard in Resources */,
 				4D0436A817BC615C00C81CA7 /* Icon.png in Resources */,
 				4D0436A917BC615C00C81CA7 /* Icon@2x.png in Resources */,
+				4D0436AD17BC7E0800C81CA7 /* Icon-72.png in Resources */,
+				4D0436AE17BC7E0800C81CA7 /* Icon-72@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,7 +223,6 @@
 				4DF9B51717BC4177008A34A6 /* AppDelegate.m in Sources */,
 				4DF9B52F17BC4304008A34A6 /* MainViewController.m in Sources */,
 				4DF9B53217BC4320008A34A6 /* MainTableViewController.m in Sources */,
-				4D04369C17BC50AA00C81CA7 /* MainTableViewCell.m in Sources */,
 				4D04369F17BC51E700C81CA7 /* RSSChannel.m in Sources */,
 				4D0436A217BC51F300C81CA7 /* RSSItem.m in Sources */,
 				4D0436A517BC557100C81CA7 /* WebViewController.m in Sources */,
@@ -301,7 +313,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Rugby/Rugby-Prefix.pch";
 				INFOPLIST_FILE = "Rugby/Rugby-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -312,7 +326,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Rugby/Rugby-Prefix.pch";
 				INFOPLIST_FILE = "Rugby/Rugby-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

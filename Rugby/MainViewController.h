@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Mark Hambly. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface MainViewController : UIViewController
+
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end

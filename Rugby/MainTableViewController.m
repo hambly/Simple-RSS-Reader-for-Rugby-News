@@ -6,22 +6,11 @@
 //  Copyright (c) 2013 Mark Hambly. All rights reserved.
 //
 
-/*
- ITM - http://www.planetrugby.com/rss/0,16039,3826,00.xml
- World Championship - http://www.planetrugby.com/rss/0,16039,3821,00.xml
- SUperrugby - http://www.planetrugby.com/rss/0,16039,3824,00.xml
- World Cup - http://www.planetrugby.com/rss/0,16039,3818,00.xml
- */
-
 #import "MainTableViewController.h"
 #import "MainTableViewCell.h"
 #import "RSSChannel.h"
 #import "RSSItem.h"
 #import "WebViewController.h"
-
-@interface MainTableViewController () 
-
-@end
 
 @implementation MainTableViewController {
 	NSURLConnection *_connection;
@@ -34,18 +23,17 @@
 		WebViewController *webViewController = segue.destinationViewController;
 		RSSItem *entry = _channel.items[self.tableView.indexPathForSelectedRow.row];
 		NSURL *url = [NSURL URLWithString:entry.link];
-		NSLog(@"Trying to view link: %@",url);
-		NSURLRequest *request = [NSURLRequest requestWithURL:url];
-		[webViewController.webView loadRequest:request];
+//		NSLog(@"Loading URL: %@",url);
+		webViewController.url = url;
 	}
 }
 
 #pragma mark - NSURL Connection
 
 -(void) fetchEntries {
+	
 	_xmlData = [[NSMutableData alloc] init];
 	NSURL *url = self.feedSelected;
-//	NSURL *url = [NSURL URLWithString:@"http://www.rsspect.com/rss/qwantz.xml"];
 	NSURLRequest *request = [NSURLRequest requestWithURL:url];
 	_connection = [[NSURLConnection alloc] initWithRequest:request
 												  delegate:self
@@ -61,6 +49,8 @@
 	[parser setDelegate:self];
 	[parser parse];
 	_connection = nil;
+
+	[self.activityIndicator stopAnimating];
 	[self.tableView reloadData];
 }
 
@@ -68,6 +58,9 @@
 	_connection = nil;
 	_xmlData = nil;
 	NSString *errorString = [NSString stringWithFormat:@"Fetch failed: %@",[error localizedDescription]];
+
+	[self.activityIndicator stopAnimating];
+	
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
 													message:errorString
 												   delegate:nil
@@ -113,6 +106,10 @@
     RSSItem *item = [[_channel items] objectAtIndex:indexPath.row];
 	cell.headlineLabel.text = item.title;
 	cell.snippetLabel.text = item.description;
+	
+	NSString *shortenedDate = [item.date substringFromIndex:5];
+	shortenedDate = [shortenedDate substringToIndex:6];
+	cell.dateLabel.text = shortenedDate;
     
     return cell;
 }

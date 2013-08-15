@@ -20,36 +20,58 @@
 	NSURL *_feedSelected;
 }
 
+
+-(void) viewDidLoad{
+	[super viewDidLoad];
+	
+//	NSLog(@"%@", [UIFont fontNamesForFamilyName:@"Avenir Next"]);
+	
+	UIFont *font = [UIFont fontWithName:@"AvenirNext-Regular" size:12.0f];
+	NSDictionary *attributes = [NSDictionary dictionaryWithObject:font forKey:UITextAttributeFont];
+	[self.feedSelectSegmentedControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
+	
+}
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 	if ([segue.identifier isEqualToString:@"EmbedTableView"]){
 		[self setFeed];
 		self.mainTableViewController = segue.destinationViewController;
+		self.mainTableViewController.activityIndicator = self.activityIndicator;
 		self.mainTableViewController.feedSelected = _feedSelected;
+		
+		[self.activityIndicator startAnimating];
 		[self.mainTableViewController fetchEntries];
 	}
 }
 
 - (IBAction)refreshButtonPressed:(id)sender {
+	[self.activityIndicator startAnimating];
 	[self.mainTableViewController fetchEntries];
 }
 
 - (IBAction)feedSelectSegmentedControlValueChanged:(id)sender {
 	[self setFeed];
 	self.mainTableViewController.feedSelected = _feedSelected;
+	[self.activityIndicator startAnimating];
 	[self.mainTableViewController fetchEntries];
 }
 
 -(void) setFeed {
 	if (self.feedSelectSegmentedControl.selectedSegmentIndex){
 		_feedSelected = [self listOfFeeds][self.feedSelectSegmentedControl.selectedSegmentIndex];
-		NSLog(@"feed selected: %@",_feedSelected);
 	} else {
 		_feedSelected = [self listOfFeeds][0];
-		NSLog(@"feed selected: %@",_feedSelected);
 	}
 }
 
 -(NSArray*) listOfFeeds {
+	
+	/*
+	 World Championship (Quad) - http://www.planetrugby.com/rss/0,16039,3821,00.xml
+	 ITM - http://www.planetrugby.com/rss/0,16039,3826,00.xml
+	 SUperrugby - http://www.planetrugby.com/rss/0,16039,3824,00.xml
+	 World Cup - http://www.planetrugby.com/rss/0,16039,3818,00.xml
+	 */
+	
 	NSArray *urlStringArray = @[
 						@"http://www.planetrugby.com/rss/0,16039,3821,00.xml",
 					   @"http://www.planetrugby.com/rss/0,16039,3826,00.xml",
@@ -64,7 +86,6 @@
 	}
 	
 	return urlArray;
-
 }
 
 -(IBAction) unwindToMainView: (UIStoryboardSegue *) segue {
