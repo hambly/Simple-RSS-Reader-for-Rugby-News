@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  WebViewController.h
 //  Rugby
 //
 //  Created by Mark on 8/15/13.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface WebViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end
