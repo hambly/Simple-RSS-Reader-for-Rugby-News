@@ -20,6 +20,9 @@
 	NSURL *_feedSelected;
 }
 
+-(UIStatusBarStyle) preferredStatusBarStyle	{
+	return UIStatusBarStyleDefault;
+}
 
 -(void) viewDidLoad{
 	[super viewDidLoad];

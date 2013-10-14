@@ -16,6 +16,11 @@
 
 @implementation WebViewController
 
+-(UIStatusBarStyle) preferredStatusBarStyle	{
+	return UIStatusBarStyleDefault;
+}
+
+
 -(void) viewDidLoad {
 	[super viewDidLoad];
 	
@@ -28,6 +33,7 @@
 	[rightSwipeRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
 	[rightSwipeRecognizer setNumberOfTouchesRequired:1];
 	[self.view addGestureRecognizer:rightSwipeRecognizer];
+
 
 }
 
